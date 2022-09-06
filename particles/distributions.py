@@ -459,6 +459,8 @@ class Dirac(ProbDist):
     """
     def __init__(self, loc=0.):
         self.loc = loc
+        if isinstance(loc, np.ndarray):
+            self.dim = np.shape(loc)
 
     def rvs(self, size=None):
         if isinstance(self.loc, np.ndarray):
